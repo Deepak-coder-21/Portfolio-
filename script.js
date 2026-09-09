@@ -1,125 +1,234 @@
-var typed = new Typed('.element', {
-    strings: ['Web Developer'],
-    typeSpeed: 100,
-    backSpeed: 60,
-    loop: true
-});
+// ==========================================================================
+// DEEPAK KUMAR - PORTFOLIO INTERACTIVITY & LOGIC
+// ==========================================================================
 
-// --- Mobile Navigation ---
-const burger = document.querySelector('.burger');
-const navLinks = document.querySelector('.nav-links');
-
-burger.addEventListener('click', () => {
-    // Toggle Nav
-    navLinks.classList.toggle('nav-active');
-
-    // Burger Animation
-    burger.classList.toggle('toggle');
-});
-
-
-// --- Smooth Scroll & Active Link Highlighting ---
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function (e) {
-        e.preventDefault();
-
-        // Close mobile nav if open
-        if (navLinks.classList.contains('nav-active')) {
-            navLinks.classList.remove('nav-active');
-            burger.classList.remove('toggle');
-        }
-
-        document.querySelector(this.getAttribute('href')).scrollIntoView({
-            behavior: 'smooth'
+document.addEventListener('DOMContentLoaded', () => {
+    // --- 1. Typed.js Animated Headline ---
+    if (typeof Typed !== 'undefined' && document.querySelector('.typed-text')) {
+        new Typed('.typed-text', {
+            strings: [
+                'Full-Stack Developer',
+                'MERN Stack Enthusiast',
+                'Frontend Developer',
+                'Problem Solver',
+                'BCA 2025 Graduate'
+            ],
+            typeSpeed: 70,
+            backSpeed: 45,
+            backDelay: 1800,
+            loop: true
         });
-    });
-});
-
-// --- Header Style on Scroll ---
-const header = document.querySelector('header');
-window.addEventListener('scroll', () => {
-    if (window.scrollY > 50) {
-        header.style.backgroundColor = 'rgba(15, 15, 26, 0.95)';
-    } else {
-        header.style.backgroundColor = 'rgba(15, 15, 26, 0.8)';
     }
-});
 
-// --- Scroll Animations (Fade In) ---
-const sections = document.querySelectorAll('section');
+    // --- 2. Mobile Navigation Toggle ---
+    const burgerBtn = document.getElementById('burgerBtn');
+    const navLinks = document.querySelector('.nav-links');
 
-const options = {
-    root: null,
-    threshold: 0.1,
-    rootMargin: "0px"
-};
+    if (burgerBtn && navLinks) {
+        burgerBtn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            navLinks.classList.toggle('nav-active');
+            burgerBtn.classList.toggle('toggle');
+        });
 
-const observer = new IntersectionObserver(function(entries, observer) {
-    entries.forEach(entry => {
-        if (!entry.isIntersecting) {
-            return;
+        // Close mobile nav when any link is clicked
+        navLinks.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('nav-active');
+                burgerBtn.classList.remove('toggle');
+            });
+        });
+
+        // Close mobile nav when clicking outside
+        document.addEventListener('click', (e) => {
+            if (navLinks.classList.contains('nav-active') && !navLinks.contains(e.target) && !burgerBtn.contains(e.target)) {
+                navLinks.classList.remove('nav-active');
+                burgerBtn.classList.remove('toggle');
+            }
+        });
+    }
+
+    // --- 3. Header Scroll Effect & Back-to-Top Button ---
+    const header = document.getElementById('header');
+    const backToTopBtn = document.getElementById('backToTop');
+
+    window.addEventListener('scroll', () => {
+        const scrollPos = window.scrollY;
+
+        // Sticky Header styling
+        if (header) {
+            if (scrollPos > 50) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
         }
-        entry.target.style.opacity = 1;
-        entry.target.style.transform = "translateY(0)";
-        // Unobserve after animation
-        observer.unobserve(entry.target);
+
+        // Back-to-top button visibility
+        if (backToTopBtn) {
+            if (scrollPos > 400) {
+                backToTopBtn.classList.add('visible');
+            } else {
+                backToTopBtn.classList.remove('visible');
+            }
+        }
     });
-}, options);
 
-sections.forEach(section => {
-    section.style.opacity = 0;
-    section.style.transform = "translateY(20px)";
-    section.style.transition = "opacity 0.6s ease-out, transform 0.6s ease-out";
-    observer.observe(section);
-});
+    if (backToTopBtn) {
+        backToTopBtn.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+    }
 
-// --- Contact Form Submission ---
-const contactForm = document.querySelector('#contactForm');
-const formStatus = document.querySelector('.form-status');
+    // --- 4. ScrollSpy Active Link Tracking ---
+    const sections = document.querySelectorAll('section[id]');
+    const navItems = document.querySelectorAll('.nav-links a[href^="#"]');
 
-if (contactForm) {
-    contactForm.addEventListener('submit', async function (event) {
-        event.preventDefault();
+    function highlightActiveNav() {
+        const scrollY = window.pageYOffset + 150;
 
-        const submitButton = contactForm.querySelector('button[type="submit"]');
-        const formData = new FormData(contactForm);
+        sections.forEach(current => {
+            const sectionHeight = current.offsetHeight;
+            const sectionTop = current.offsetTop;
+            const sectionId = current.getAttribute('id');
 
-        if (formStatus) {
-            formStatus.textContent = '';
-            formStatus.classList.remove('success', 'error');
-        }
+            if (scrollY > sectionTop && scrollY <= sectionTop + sectionHeight) {
+                navItems.forEach(link => {
+                    link.classList.remove('active');
+                    if (link.getAttribute('href') === `#${sectionId}`) {
+                        link.classList.add('active');
+                    }
+                });
+            }
+        });
+    }
 
-        submitButton.disabled = true;
-        submitButton.textContent = 'Sending...';
+    window.addEventListener('scroll', highlightActiveNav);
 
-        try {
-            const response = await fetch(contactForm.action, {
-                method: 'POST',
-                body: formData,
-                headers: {
-                    'Accept': 'application/json'
+    // --- 5. Skills Category Filtering ---
+    const filterButtons = document.querySelectorAll('.filter-btn');
+    const skillCards = document.querySelectorAll('.skill-card');
+
+    filterButtons.forEach(btn => {
+        btn.addEventListener('click', () => {
+            filterButtons.forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+
+            const filterValue = btn.getAttribute('data-filter');
+
+            skillCards.forEach(card => {
+                const category = card.getAttribute('data-category') || '';
+                if (filterValue === 'all' || category.includes(filterValue)) {
+                    card.style.display = 'flex';
+                    setTimeout(() => {
+                        card.style.opacity = '1';
+                        card.style.transform = 'translateY(0)';
+                    }, 50);
+                } else {
+                    card.style.opacity = '0';
+                    card.style.transform = 'translateY(10px)';
+                    setTimeout(() => {
+                        card.style.display = 'none';
+                    }, 250);
                 }
             });
-
-            if (!response.ok) {
-                const errorData = await response.json().catch(() => ({}));
-                throw new Error(errorData.error || 'Something went wrong. Please try again.');
-            }
-
-            if (formStatus) {
-                formStatus.textContent = 'Your message has been sent successfully!';
-                formStatus.classList.add('success');
-            }
-
-            contactForm.reset();
-        } catch (error) {
-            if (formStatus) {
-                formStatus.textContent = error.message || 'Please try again later.';
-                formStatus.classList.add('error');
-            }
-        } finally {
-            submitButton.disabled = false;
-            submitButton.textContent = 'Send Message';
-        }
+        });
     });
-}
+
+    // --- 6. Copy to Clipboard Functionality ---
+    const copyButtons = document.querySelectorAll('.copy-btn[data-copy]');
+    const toastNotice = document.getElementById('toastNotice');
+    const toastText = document.getElementById('toastText');
+    let toastTimeout;
+
+    function showToast(message) {
+        if (!toastNotice) return;
+        if (toastText) toastText.textContent = message;
+
+        toastNotice.classList.add('show');
+        clearTimeout(toastTimeout);
+        toastTimeout = setTimeout(() => {
+            toastNotice.classList.remove('show');
+        }, 2800);
+    }
+
+    copyButtons.forEach(btn => {
+        btn.addEventListener('click', async (e) => {
+            e.preventDefault();
+            const textToCopy = btn.getAttribute('data-copy');
+            if (!textToCopy) return;
+
+            try {
+                await navigator.clipboard.writeText(textToCopy);
+                showToast(`Copied "${textToCopy}" to clipboard!`);
+            } catch (err) {
+                // Fallback method
+                const tempInput = document.createElement('input');
+                tempInput.value = textToCopy;
+                document.body.appendChild(tempInput);
+                tempInput.select();
+                document.execCommand('copy');
+                document.body.removeChild(tempInput);
+                showToast(`Copied to clipboard!`);
+            }
+        });
+    });
+
+    // --- 7. Contact Form AJAX Submission ---
+    const contactForm = document.getElementById('contactForm');
+    const formStatus = document.getElementById('formStatus');
+    const submitBtn = document.getElementById('submitBtn');
+
+    if (contactForm) {
+        contactForm.addEventListener('submit', async (e) => {
+            e.preventDefault();
+
+            if (!submitBtn) return;
+            const originalBtnContent = submitBtn.innerHTML;
+            submitBtn.disabled = true;
+            submitBtn.innerHTML = '<span>Sending Message...</span> <i class="fas fa-spinner fa-spin"></i>';
+
+            if (formStatus) {
+                formStatus.className = 'form-status';
+                formStatus.style.display = 'none';
+            }
+
+            const formData = new FormData(contactForm);
+
+            try {
+                const response = await fetch(contactForm.action, {
+                    method: 'POST',
+                    body: formData,
+                    headers: {
+                        'Accept': 'application/json'
+                    }
+                });
+
+                if (response.ok) {
+                    contactForm.reset();
+                    if (formStatus) {
+                        formStatus.textContent = '🎉 Thank you! Your message has been sent successfully. I will get back to you soon.';
+                        formStatus.classList.add('success');
+                        formStatus.style.display = 'block';
+                    }
+                    showToast('Message sent successfully!');
+                } else {
+                    const data = await response.json().catch(() => ({}));
+                    throw new Error(data.error || 'Oops! There was a problem sending your message.');
+                }
+            } catch (err) {
+                if (formStatus) {
+                    formStatus.textContent = err.message || 'Error sending message. Please email me directly at deepakkumarmdb2004@gmail.com.';
+                    formStatus.classList.add('error');
+                    formStatus.style.display = 'block';
+                }
+            } finally {
+                submitBtn.disabled = false;
+                submitBtn.innerHTML = originalBtnContent;
+            }
+        });
+    }
+});

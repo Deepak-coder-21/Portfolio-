@@ -4,184 +4,434 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Deepak-Portfolio</title>
-    <link rel="stylesheet" href="style.css">
-    <!-- Font Awesome for icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
-        xintegrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
-        crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <!-- Devicon for skill logos -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/devicon.min.css">
-    <!-- Google Fonts -->
+    <title>Deepak Kumar | Full Stack Web Developer Portfolio</title>
+    <meta name="description" content="Portfolio of Deepak Kumar - Full Stack Web Developer & BCA Graduate specializing in MERN stack, JavaScript, and modern responsive web applications.">
+    <meta name="keywords" content="Deepak Kumar, Web Developer, Full Stack, MERN Stack, React Developer, JavaScript, Portfolio">
+    <meta name="author" content="Deepak Kumar">
+
+    <!-- Google Fonts: Outfit & Inter -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <!-- Devicon Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/devicon.min.css">
+
+    <!-- Main Stylesheet -->
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-    <header>
+    <!-- Header & Navigation -->
+    <header id="header">
         <nav>
-            <div class="logo"><span>D</span>eepak.</div>
+            <a href="#hero" class="logo">
+                <span>D</span>eepak<span>.</span>
+            </a>
             <ul class="nav-links">
-                <li><a href="#firstSection">Home</a></li>
+                <li><a href="#hero" class="active">Home</a></li>
                 <li><a href="#about">About</a></li>
                 <li><a href="#skills">Skills</a></li>
                 <li><a href="#projects">Projects</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
-            <div class="burger">
-                <div class="line1"></div>
-                <div class="line2"></div>
-                <div class="line3"></div>
+            <div class="nav-actions">
+                <a href="#contact" class="btn btn-primary btn-sm">Hire Me</a>
+                <div class="burger" id="burgerBtn" aria-label="Toggle Navigation Menu">
+                    <div class="line1"></div>
+                    <div class="line2"></div>
+                    <div class="line3"></div>
+                </div>
             </div>
         </nav>
     </header>
 
     <main>
-        <section id="firstSection">
-            <div class="firstSection-content">
-                <div class="text-content">
-                    <h3>Hello, It's Me</h3>
-                    <h1>Deepak Kumar</h1>
-                    <h3>And I'm a <span class="purpul element"></span></h3>
-                    <p class="intro-text">A passionate and creative web developer ready to build amazing things.</p>
-                    <div class="social-links">
-                        <a href="https://www.linkedin.com/in/deepak-kumar-880360263" target="_blank"><i
-                                class="fab fa-linkedin"></i></a>
-                        <a href="https://github.com/your-github" target="_blank"><i class="fab fa-github"></i></a>
-                        <a href="mailto:deepakkumarmdb2004@gmail.com"><i class="fas fa-envelope"></i></a>
-                    </div>
-                    <button class="btn"><a href="Deepak Kumar Sah.docx" download>Download Resume</a></button>
-                </div>
-                <div class="image-content">
-                    <img src="image/wmremove-transformed.jpeg" alt="Deepak Kumar Sah img...">
-                </div>
-            </div>
-        </section>
-
-        <section id="about" class="section-bg">
+        <!-- Hero Section -->
+        <section id="hero">
             <div class="container">
-                <h2 class="section-title">About <span>Me</span></h2>
-                <div class="about-content">
-                    <div class="about-img">
-                        <img src="nubelson-fernandes-UcYBL5V0xWQ-unsplash.jpg" alt="About Me">
-                    </div>
-                    <div class="about-text">
-                        <h4>Web Developer!</h4>
-                        <p>
-                            I am a Bachelor of Computer Applications (BCA) graduated with a strong passion for web
-                            development. As a fresher, I am eager to step into the professional world and apply my
-                            knowledge to create impactful and user-friendly web solutions. With a thirst for learning
-                            and exploring new technologies, I am committed to sharpening my skills and growing in this
-                            dynamic field. My enthusiasm for coding, problem-solving, and creativity drives me to take
-                            on challenges and contribute meaningfully to innovative projects.
+                <div class="hero-grid">
+                    <div class="hero-text">
+                        <div class="status-badge">
+                            <span class="status-dot"></span>
+                            Available for Full-time Roles & Internships
+                        </div>
+                        <h3>Hello, I'm</h3>
+                        <h1>Deepak Kumar</h1>
+                        <div class="hero-role">
+                            I am a <span class="typed-text"></span>
+                        </div>
+                        <p class="hero-description">
+                            A motivated Full-Stack Web Developer & BCA 2025 graduate with a strong passion for building responsive, accessible, and high-performance digital web applications.
                         </p>
-                        <div class="education-item">
-                            <h3><i class="fas fa-graduation-cap"></i> Bachelor of Computer Applications (BCA)</h3>
-                            <p>RK College, Madhubani - (2025)</p>
+                        <div class="hero-buttons">
+                            <a href="#projects" class="btn btn-primary">
+                                <span>Explore My Work</span>
+                                <i class="fas fa-arrow-right"></i>
+                            </a>
+                            <a href="#contact" class="btn btn-outline">
+                                <span>Get in Touch</span>
+                                <i class="fas fa-paper-plane"></i>
+                            </a>
+                            <a href="https://github.com/Deepak-coder-21" target="_blank" rel="noopener noreferrer" class="btn btn-outline" title="View GitHub Profile">
+                                <i class="fab fa-github"></i>
+                                <span>GitHub</span>
+                            </a>
+                        </div>
+                        <div class="hero-socials">
+                            <a href="https://www.linkedin.com/in/deepak-kumar-880360263" target="_blank" rel="noopener noreferrer" class="social-icon" aria-label="LinkedIn Profile">
+                                <i class="fab fa-linkedin-in"></i>
+                            </a>
+                            <a href="https://github.com/Deepak-coder-21" target="_blank" rel="noopener noreferrer" class="social-icon" aria-label="GitHub Profile">
+                                <i class="fab fa-github"></i>
+                            </a>
+                            <a href="mailto:deepakkumarmdb2004@gmail.com" class="social-icon" aria-label="Send Email">
+                                <i class="fas fa-envelope"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="hero-visual">
+                        <div class="hero-image-wrapper">
+                            <div class="hero-image-backdrop"></div>
+                            <div class="hero-image-container">
+                                <img src="image/wmremove-transformed.jpeg" alt="Deepak Kumar - Full Stack Web Developer">
+                            </div>
+                            <!-- Floating Interactive Tech Badges -->
+                            <div class="floating-badge badge-1">
+                                <i class="devicon-react-original colored" style="font-size: 1.2rem;"></i>
+                                <span>React & Frontend</span>
+                            </div>
+                            <div class="floating-badge badge-2">
+                                <i class="devicon-nodejs-plain colored" style="font-size: 1.2rem;"></i>
+                                <span>Node & Express</span>
+                            </div>
+                            <div class="floating-badge badge-3">
+                                <i class="fas fa-graduation-cap" style="color: #ff3b69;"></i>
+                                <span>BCA 2025 Grad</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Stats Counter Bar -->
+                <div class="stats-bar">
+                    <div class="stat-item">
+                        <div class="stat-number">2025</div>
+                        <div class="stat-label">BCA Graduate</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">2+</div>
+                        <div class="stat-label">Live Deployed Apps</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">12+</div>
+                        <div class="stat-label">Tech Tools & Stacks</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">100%</div>
+                        <div class="stat-label">Dedication & Passion</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section id="about">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-badge">Get To Know Me</span>
+                    <h2 class="section-title">About <span>Me</span></h2>
+                    <p class="section-subtitle">A brief look into my background, technical education, and passion for modern software engineering.</p>
+                </div>
+
+                <div class="bento-grid">
+                    <div class="bento-card bento-main">
+                        <h3>Hi, I'm Deepak!</h3>
+                        <p>
+                            I hold a Bachelor of Computer Applications (BCA) degree from <strong>RK College, Madhubani</strong>. I am deeply enthusiastic about web development, modern frontend architecture, and full-stack cloud solutions.
+                        </p>
+                        <p>
+                            From turning concepts into interactive web apps to building clean user interfaces and integrating backend APIs, I take pride in writing neat, maintainable, and efficient code. I continuously expand my skillset with the latest frameworks and industry best practices.
+                        </p>
+                        <div style="display: flex; gap: 12px; flex-wrap: wrap; margin-top: 24px;">
+                            <span class="project-tag"><i class="fas fa-check-circle" style="color: #10b981; margin-right: 6px;"></i>Quick Learner</span>
+                            <span class="project-tag"><i class="fas fa-check-circle" style="color: #10b981; margin-right: 6px;"></i>Problem Solver</span>
+                            <span class="project-tag"><i class="fas fa-check-circle" style="color: #10b981; margin-right: 6px;"></i>Team Collaborator</span>
+                            <span class="project-tag"><i class="fas fa-check-circle" style="color: #10b981; margin-right: 6px;"></i>Modern UI/UX</span>
+                        </div>
+                    </div>
+
+                    <div class="bento-card bento-img">
+                        <img src="image/about_workspace.jpg" alt="Deepak's Developer Workspace Art">
+                        <div class="bento-img-overlay">
+                            <h4>Building Modern Solutions</h4>
+                            <p>Crafting responsive, user-friendly experiences with modern technologies.</p>
+                        </div>
+                    </div>
+
+                    <div class="bento-subgrid">
+                        <div class="subcard">
+                            <div class="subcard-icon">
+                                <i class="fas fa-graduation-cap"></i>
+                            </div>
+                            <h4>BCA Degree</h4>
+                            <p>RK College, Madhubani (Batch 2022 - 2025)</p>
+                            <p style="font-size: 0.8rem; color: #ff3b69; margin-top: 4px;">Bachelor of Computer Applications</p>
+                        </div>
+
+                        <div class="subcard">
+                            <div class="subcard-icon">
+                                <i class="fas fa-laptop-code"></i>
+                            </div>
+                            <h4>Core Focus</h4>
+                            <p>Full-Stack MERN Development, JavaScript logic, and responsive UI design.</p>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
 
-
-        <section id="skills" class="section-bg">
+        <!-- Skills Section -->
+        <section id="skills">
             <div class="container">
-                <h2 class="section-title">My <span>Skills</span></h2>
-                <div class="skills-grid">
-                    <div class="skill-card"><i class="devicon-html5-plain colored"></i>
+                <div class="section-header">
+                    <span class="section-badge">Capabilities</span>
+                    <h2 class="section-title">My <span>Skills</span></h2>
+                    <p class="section-subtitle">The programming languages, frameworks, libraries, and tools I use to bring ideas to life.</p>
+                </div>
+
+                <div class="skills-filter-container">
+                    <button class="filter-btn active" data-filter="all">All Skills</button>
+                    <button class="filter-btn" data-filter="frontend">Frontend</button>
+                    <button class="filter-btn" data-filter="backend">Backend & DB</button>
+                    <button class="filter-btn" data-filter="languages">Languages & Tools</button>
+                </div>
+
+                <div class="skills-grid" id="skillsGrid">
+                    <!-- Frontend -->
+                    <div class="skill-card" data-category="frontend">
+                        <i class="devicon-html5-plain colored"></i>
                         <p>HTML5</p>
+                        <span class="skill-badge">Frontend</span>
                     </div>
-                    <div class="skill-card"><i class="devicon-css3-plain colored"></i>
+                    <div class="skill-card" data-category="frontend">
+                        <i class="devicon-css3-plain colored"></i>
                         <p>CSS3</p>
+                        <span class="skill-badge">Frontend</span>
                     </div>
-                    <div class="skill-card"><i class="devicon-javascript-plain colored"></i>
+                    <div class="skill-card" data-category="frontend languages">
+                        <i class="devicon-javascript-plain colored"></i>
                         <p>JavaScript</p>
+                        <span class="skill-badge">Core / ES6+</span>
                     </div>
-                    <div class="skill-card"><i class="devicon-tailwindcss-original-wordmark colored"></i>
-                        <p>Tailwind CSS</p>
-                    </div>
-                    <div class="skill-card"><i class="devicon-mongodb-plain-wordmark colored"></i>
-                        <p>MongoDB</p>
-                    </div>
-                    <div class="skill-card"><i class="devicon-express-original colored"></i>
-                        <p>Express</p>
-                    </div>
-                    <div class="skill-card"><i class="devicon-react-original colored"></i>
+                    <div class="skill-card" data-category="frontend">
+                        <i class="devicon-react-original colored"></i>
                         <p>React</p>
+                        <span class="skill-badge">Library</span>
                     </div>
-                    <div class="skill-card"><i class="devicon-nodejs-plain colored"></i>
+                    <div class="skill-card" data-category="frontend">
+                        <i class="devicon-tailwindcss-original-wordmark colored"></i>
+                        <p>Tailwind CSS</p>
+                        <span class="skill-badge">Framework</span>
+                    </div>
+
+                    <!-- Backend & DB -->
+                    <div class="skill-card" data-category="backend">
+                        <i class="devicon-nodejs-plain colored"></i>
                         <p>Node.js</p>
+                        <span class="skill-badge">Runtime</span>
                     </div>
-                    <div class="skill-card"><i class="devicon-github-original colored"></i>
-                        <p>GitHub</p>
+                    <div class="skill-card" data-category="backend">
+                        <i class="devicon-express-original colored"></i>
+                        <p>Express</p>
+                        <span class="skill-badge">Backend</span>
                     </div>
-                    <div class="skill-card"><i class="devicon-c-plain colored"></i>
+                    <div class="skill-card" data-category="backend">
+                        <i class="devicon-mongodb-plain-wordmark colored"></i>
+                        <p>MongoDB</p>
+                        <span class="skill-badge">Database</span>
+                    </div>
+
+                    <!-- Languages & Tools -->
+                    <div class="skill-card" data-category="languages">
+                        <i class="devicon-c-plain colored"></i>
                         <p>C</p>
+                        <span class="skill-badge">Language</span>
                     </div>
-                    <div class="skill-card"><i class="devicon-java-plain-wordmark colored"></i>
+                    <div class="skill-card" data-category="languages">
+                        <i class="devicon-java-plain-wordmark colored"></i>
                         <p>Java</p>
+                        <span class="skill-badge">Language</span>
                     </div>
-                    <div class="skill-card"><i class="devicon-python-plain colored"></i>
+                    <div class="skill-card" data-category="languages">
+                        <i class="devicon-python-plain colored"></i>
                         <p>Python</p>
+                        <span class="skill-badge">Language</span>
+                    </div>
+                    <div class="skill-card" data-category="languages">
+                        <i class="devicon-github-original colored"></i>
+                        <p>Git & GitHub</p>
+                        <span class="skill-badge">Version Control</span>
                     </div>
                 </div>
             </div>
         </section>
 
-        <section id="projects" class="section-bg">
+        <!-- Projects Section -->
+        <section id="projects">
             <div class="container">
-                <h2 class="section-title">Latest <span>Projects</span></h2>
-                <div class="projects-grid">
+                <div class="section-header">
+                    <span class="section-badge">Live Applications</span>
+                    <h2 class="section-title">Deployed <span>Projects</span></h2>
+                    <p class="section-subtitle">Fully functional, live web applications and interactive games deployed on the cloud.</p>
+                </div>
+
+                <div class="projects-grid deployed-grid">
+                    <!-- Project 1: EduCenter -->
                     <div class="project-card">
-                        <img src="https://placehold.co/600x400/2a2a3e/e94560?text=Netflix+Clone" alt="Netflix Clone">
-                        <div class="project-info">
-                            <h4>Netflix Clone</h4>
-                            <p>A replica of the Netflix UI, focusing on layout and styling with HTML and CSS.</p>
-                            <a href="#"><i class="fas fa-external-link-alt"></i></a>
+                        <div class="project-image">
+                            <img src="image/educenter.jpg" alt="EduCenter eLearning Platform Preview">
+                            <span class="project-badge featured">Vercel Deployed</span>
+                        </div>
+                        <div class="project-content">
+                            <div class="project-tags">
+                                <span class="project-tag">JavaScript</span>
+                                <span class="project-tag">HTML5 / CSS3</span>
+                                <span class="project-tag">eLearning Platform</span>
+                                <span class="project-tag">Vercel</span>
+                            </div>
+                            <h3 class="project-title">EduCenter Platform</h3>
+                            <p class="project-desc">
+                                A comprehensive, fully responsive online eLearning & course management platform. Features course catalog browsing, student dashboard, interactive modules, video lectures, and responsive student portal.
+                            </p>
+                            <div class="project-links">
+                                <a href="https://edu-center-three.vercel.app/" target="_blank" rel="noopener noreferrer" class="btn btn-primary">
+                                    <i class="fas fa-external-link-alt"></i>
+                                    <span>Live Demo</span>
+                                </a>
+                                <a href="https://github.com/Deepak-coder-21/EduCenter" target="_blank" rel="noopener noreferrer" class="btn btn-outline">
+                                    <i class="fab fa-github"></i>
+                                    <span>Source Code</span>
+                                </a>
+                            </div>
                         </div>
                     </div>
+
+                    <!-- Project 2: Zero-Cross / Tic-Tac-Toe -->
                     <div class="project-card">
-                        <img src="https://placehold.co/600x400/2a2a3e/e94560?text=Amazon+Clone" alt="Amazon Clone">
-                        <div class="project-info">
-                            <h4>EduCenter</h4>
-                            <p>Comming soon....</p>
-                            <a href="#"><i class="fas fa-external-link-alt"></i></a>
+                        <div class="project-image">
+                            <img src="image/zerocross.jpg" alt="Tic-Tac-Toe Zero Cross Game Preview">
+                            <span class="project-badge featured">GitHub Pages</span>
                         </div>
-                    </div>
-                    <div class="project-card">
-                        <img src="https://placehold.co/600x400/2a2a3e/e94560?text=Tic-Tac-Toe" alt="Tic-Tac-Toe Game">
-                        <div class="project-info">
-                            <h4>Tic-Tac-Toe Game</h4>
-                            <p>An interactive Tic-Tac-Toe game built with JavaScript logic and DOM manipulation.</p>
-                            <a href="https://deepak-coder-21.github.io/Zero-cross-game/"><i
-                                    class="fas fa-external-link-alt"></i></a>
+                        <div class="project-content">
+                            <div class="project-tags">
+                                <span class="project-tag">JavaScript</span>
+                                <span class="project-tag">CSS3 Neon UI</span>
+                                <span class="project-tag">DOM Manipulation</span>
+                                <span class="project-tag">GitHub Pages</span>
+                            </div>
+                            <h3 class="project-title">Zero-Cross (Tic-Tac-Toe)</h3>
+                            <p class="project-desc">
+                                A responsive interactive Tic-Tac-Toe browser game featuring custom neon animations, real-time win condition evaluation algorithms, turn switching, score tracking, and smooth DOM animations.
+                            </p>
+                            <div class="project-links">
+                                <a href="https://deepak-coder-21.github.io/Zero-cross-game/" target="_blank" rel="noopener noreferrer" class="btn btn-primary">
+                                    <i class="fas fa-gamepad"></i>
+                                    <span>Play Live Game</span>
+                                </a>
+                                <a href="https://github.com/Deepak-coder-21/Zero-cross-game" target="_blank" rel="noopener noreferrer" class="btn btn-outline">
+                                    <i class="fab fa-github"></i>
+                                    <span>Source Code</span>
+                                </a>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <section id="contact" class="section-bg">
+        <!-- Contact Section -->
+        <section id="contact">
             <div class="container">
-                <h2 class="section-title">Contact <span>Me</span></h2>
-                <div class="contact-content">
-                    <div class="contact-info">
-                        <p><i class="fas fa-envelope"></i> <a
-                                href="mailto:deepakkumarmdb2004@gmail.com">deepakkumarmdb2004@gmail.com</a></p>
-                        <p><i class="fas fa-phone"></i> +91 9304654970</p>
-                        <p><i class="fab fa-linkedin"></i> <a href="https://www.linkedin.com/in/deepak-kumar-880360263"
-                                target="_blank">LinkedIn Profile</a></p>
+                <div class="section-header">
+                    <span class="section-badge">Get In Touch</span>
+                    <h2 class="section-title">Contact <span>Me</span></h2>
+                    <p class="section-subtitle">Have a question or looking to hire a passionate web developer? Feel free to reach out directly or send a message!</p>
+                </div>
+
+                <div class="contact-grid">
+                    <!-- Contact Information Cards -->
+                    <div class="contact-cards">
+                        <!-- Email -->
+                        <div class="contact-card">
+                            <div class="contact-card-icon">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <div class="contact-card-info">
+                                <div class="contact-card-label">Email Me</div>
+                                <a href="mailto:deepakkumarmdb2004@gmail.com" class="contact-card-value">deepakkumarmdb2004@gmail.com</a>
+                            </div>
+                            <button class="copy-btn" data-copy="deepakkumarmdb2004@gmail.com" title="Copy Email">
+                                <i class="far fa-copy"></i>
+                            </button>
+                        </div>
+
+
+                        <!-- LinkedIn -->
+                        <div class="contact-card">
+                            <div class="contact-card-icon">
+                                <i class="fab fa-linkedin-in"></i>
+                            </div>
+                            <div class="contact-card-info">
+                                <div class="contact-card-label">LinkedIn</div>
+                                <a href="https://www.linkedin.com/in/deepak-kumar-880360263" target="_blank" rel="noopener noreferrer" class="contact-card-value">Deepak Kumar</a>
+                            </div>
+                            <a href="https://www.linkedin.com/in/deepak-kumar-880360263" target="_blank" rel="noopener noreferrer" class="copy-btn" title="Open LinkedIn">
+                                <i class="fas fa-external-link-alt"></i>
+                            </a>
+                        </div>
+
+                        <!-- GitHub -->
+                        <div class="contact-card">
+                            <div class="contact-card-icon">
+                                <i class="fab fa-github"></i>
+                            </div>
+                            <div class="contact-card-info">
+                                <div class="contact-card-label">GitHub</div>
+                                <a href="https://github.com/Deepak-coder-21" target="_blank" rel="noopener noreferrer" class="contact-card-value">@Deepak-coder-21</a>
+                            </div>
+                            <a href="https://github.com/Deepak-coder-21" target="_blank" rel="noopener noreferrer" class="copy-btn" title="Open GitHub">
+                                <i class="fas fa-external-link-alt"></i>
+                            </a>
+                        </div>
                     </div>
-                    <div class="contact-form">
-                        <form id="contactForm" action="https://formspree.io/f/xaewrgkw" method="POST">
-                            <input type="text" name="name" placeholder="Your Name" required>
-                            <input type="email" name="email" placeholder="Your Email" required>
-                            <textarea name="message" cols="30" rows="7" placeholder="Your Message" required></textarea>
-                            <button type="submit" class="btn">Send Message</button>
-                            <p class="form-status" aria-live="polite"></p>
+
+                    <!-- Contact Form -->
+                    <div class="contact-form-card">
+                        <form id="contactForm" class="contact-form" action="https://formspree.io/f/xaewrgkw" method="POST">
+                            <div class="form-group">
+                                <label for="name">Your Name</label>
+                                <input type="text" id="name" name="name" class="form-input" placeholder="e.g. John Doe" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="email">Your Email Address</label>
+                                <input type="email" id="email" name="email" class="form-input" placeholder="e.g. john@example.com" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="message">Your Message</label>
+                                <textarea id="message" name="message" class="form-input" placeholder="Tell me about your project, team, or opportunity..." required></textarea>
+                            </div>
+                            <button type="submit" class="btn btn-primary" id="submitBtn">
+                                <span>Send Message</span>
+                                <i class="fas fa-paper-plane"></i>
+                            </button>
+                            <div class="form-status" id="formStatus" aria-live="polite"></div>
                         </form>
                     </div>
                 </div>
@@ -189,12 +439,35 @@
         </section>
     </main>
 
+    <!-- Footer -->
     <footer>
-        <p>&copy; 2024 Deepak Kumar | All Rights Reserved.</p>
+        <div class="container footer-content">
+            <div class="footer-logo"><span>D</span>eepak<span>.</span></div>
+            <ul class="footer-links">
+                <li><a href="#hero">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <p>&copy; 2025 Deepak Kumar. All rights reserved. Crafted with passion & modern code.</p>
+        </div>
     </footer>
 
-    <!-- Typed.js for typing animation -->
+    <!-- Back to Top Button -->
+    <button class="back-to-top" id="backToTop" aria-label="Back to Top">
+        <i class="fas fa-chevron-up"></i>
+    </button>
+
+    <!-- Toast Notification for Copy -->
+    <div class="toast-notice" id="toastNotice">
+        <i class="fas fa-check-circle" style="color: #10b981;"></i>
+        <span id="toastText">Copied to clipboard!</span>
+    </div>
+
+    <!-- Typed.js for dynamic typing -->
     <script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>
+    <!-- Portfolio JavaScript Logic -->
     <script src="script.js"></script>
 </body>
 
