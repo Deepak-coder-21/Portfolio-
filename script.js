@@ -231,4 +231,41 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     }
+
+    // --- 8. Neumorphic Theme Toggle (Dark & Light Mode) ---
+    const themeToggle = document.getElementById('themeToggle');
+    const htmlEl = document.documentElement;
+
+    function getStoredTheme() {
+        const saved = localStorage.getItem('deepak_neu_theme');
+        if (saved) return saved;
+        return window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark';
+    }
+
+    function applyTheme(theme) {
+        htmlEl.setAttribute('data-theme', theme);
+        localStorage.setItem('deepak_neu_theme', theme);
+    }
+
+    // Apply preferred theme on load
+    applyTheme(getStoredTheme());
+
+    if (themeToggle) {
+        themeToggle.addEventListener('click', () => {
+            const current = htmlEl.getAttribute('data-theme') || 'dark';
+            const next = current === 'dark' ? 'light' : 'dark';
+            applyTheme(next);
+            if (typeof showToast === 'function') {
+                showToast(`Switched to ${next === 'dark' ? 'Dark' : 'Light'} Mode`);
+            }
+        });
+    }
+
+    // Listen to OS theme changes if user hasn't explicitly set preference
+    window.matchMedia('(prefers-color-scheme: light)').addEventListener('change', (e) => {
+        if (!localStorage.getItem('deepak_neu_theme')) {
+            applyTheme(e.matches ? 'light' : 'dark');
+        }
+    });
 });
+
