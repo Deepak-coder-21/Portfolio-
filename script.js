@@ -221,7 +221,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 }
             } catch (err) {
                 if (formStatus) {
-                    formStatus.textContent = err.message || 'Error sending message. Please email me directly at deepakkumarmdb2004@gmail.com.';
+                    formStatus.textContent = err.message || 'Error sending message. Please email me directly at deepak2005dev@gmail.com.';
                     formStatus.classList.add('error');
                     formStatus.style.display = 'block';
                 }
