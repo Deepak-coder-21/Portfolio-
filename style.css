@@ -8,6 +8,34 @@
    Neumorphic Themes: Dark Mode & Light Mode Variables
    -------------------------------------------------------------------------- */
 :root,
+html[data-theme="light"] {
+  /* Classic Light Neumorphism (Default: Soft Silver / Off-White) */
+  --bg-base: #e2e8f0;
+  --bg-surface: #e2e8f0;
+  --bg-surface-convex: linear-gradient(145deg, #f2f8ff, #cbd2db);
+
+  /* Opposing Dual Shadows for Light Material */
+  --shadow-dark: #b8c2cc;
+  --shadow-light: #ffffff;
+
+  /* Accents */
+  --accent-primary: #0284c7;       /* Deep Sky Blue */
+  --accent-secondary: #6366f1;     /* Indigo */
+  --accent-emerald: #059669;       /* Deep Green LED */
+  --accent-coral: #e11d48;         /* Rose LED */
+  --accent-amber: #d97706;
+
+  --accent-glow: 0 0 14px rgba(2, 132, 199, 0.35);
+
+  /* Typography Colors */
+  --text-main: #1e293b;
+  --text-muted: #475569;
+  --text-dim: #64748b;
+
+  --card-overlay: rgba(226, 232, 240, 0.94);
+}
+
+/* Dark Neumorphic Theme */
 html[data-theme="dark"] {
   /* Dark Neumorphic Slate Base */
   --bg-base: #1e212b;
@@ -33,33 +61,6 @@ html[data-theme="dark"] {
   --text-dim: #64748b;
 
   --card-overlay: rgba(30, 33, 43, 0.92);
-}
-
-/* Classic Light Neumorphism (Soft Silver / Off-White) */
-html[data-theme="light"] {
-  --bg-base: #e2e8f0;
-  --bg-surface: #e2e8f0;
-  --bg-surface-convex: linear-gradient(145deg, #f2f8ff, #cbd2db);
-
-  /* Opposing Dual Shadows for Light Material */
-  --shadow-dark: #b8c2cc;
-  --shadow-light: #ffffff;
-
-  /* Accents */
-  --accent-primary: #0284c7;       /* Deep Sky Blue */
-  --accent-secondary: #6366f1;     /* Indigo */
-  --accent-emerald: #059669;       /* Deep Green LED */
-  --accent-coral: #e11d48;         /* Rose LED */
-  --accent-amber: #d97706;
-
-  --accent-glow: 0 0 14px rgba(2, 132, 199, 0.35);
-
-  /* Typography Colors */
-  --text-main: #1e293b;
-  --text-muted: #475569;
-  --text-dim: #64748b;
-
-  --card-overlay: rgba(226, 232, 240, 0.94);
 }
 
 /* Shared Neumorphic Formulae (Dynamic via CSS Variables) */
@@ -95,6 +96,64 @@ html[data-theme="light"] {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  -webkit-tap-highlight-color: transparent !important; /* Removes blue tap highlight on mobile screens */
+}
+
+/* Eliminate blue highlight, focus outline, and touch callouts on touch devices */
+a,
+button,
+input,
+textarea,
+select,
+.btn,
+.nav-links a,
+.filter-btn,
+.skill-card,
+.social-icon,
+.copy-btn,
+.theme-toggle,
+.burger,
+.status-badge,
+.floating-badge,
+.project-card,
+.subcard {
+  -webkit-tap-highlight-color: transparent !important;
+  -webkit-touch-callout: none !important;
+  outline: none;
+}
+
+/* Prevent accidental text selection (blue selection highlight) on buttons/links when tapped on mobile */
+button,
+.btn,
+a,
+.nav-links a,
+.filter-btn,
+.skill-card,
+.social-icon,
+.copy-btn,
+.theme-toggle,
+.burger,
+.status-badge,
+.floating-badge,
+.stat-item,
+.project-badge,
+.project-tag {
+  -webkit-user-select: none !important;
+  -moz-user-select: none !important;
+  -ms-user-select: none !important;
+  user-select: none !important;
+}
+
+/* Prevent unwanted focus ring on click/touch while preserving accessibility */
+button:focus:not(:focus-visible),
+a:focus:not(:focus-visible),
+.btn:focus:not(:focus-visible),
+.filter-btn:focus:not(:focus-visible),
+.copy-btn:focus:not(:focus-visible),
+.theme-toggle:focus:not(:focus-visible),
+.social-icon:focus:not(:focus-visible),
+.burger:focus:not(:focus-visible) {
+  outline: none !important;
 }
 
 html {

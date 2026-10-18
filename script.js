@@ -239,7 +239,7 @@ document.addEventListener('DOMContentLoaded', () => {
     function getStoredTheme() {
         const saved = localStorage.getItem('deepak_neu_theme');
         if (saved) return saved;
-        return window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark';
+        return 'light'; // Default to Light Mode!
     }
 
     function applyTheme(theme) {
@@ -247,13 +247,13 @@ document.addEventListener('DOMContentLoaded', () => {
         localStorage.setItem('deepak_neu_theme', theme);
     }
 
-    // Apply preferred theme on load
+    // Apply preferred theme on load (defaults to light mode)
     applyTheme(getStoredTheme());
 
     if (themeToggle) {
         themeToggle.addEventListener('click', () => {
-            const current = htmlEl.getAttribute('data-theme') || 'dark';
-            const next = current === 'dark' ? 'light' : 'dark';
+            const current = htmlEl.getAttribute('data-theme') || 'light';
+            const next = current === 'light' ? 'dark' : 'light';
             applyTheme(next);
             if (typeof showToast === 'function') {
                 showToast(`Switched to ${next === 'dark' ? 'Dark' : 'Light'} Mode`);
