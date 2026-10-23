@@ -982,9 +982,9 @@ html[data-theme="light"] .icon-moon {
    ========================================================================== */
 .deployed-grid {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 36px;
-  max-width: 1080px;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 30px;
+  max-width: 1180px;
   margin: 0 auto;
 }
 
